@@ -18,3 +18,19 @@ target_include_directories(logger
 )
 
 target_compile_options(logger PRIVATE -Wall -Wextra -Wpedantic)
+
+add_executable(logger_tests
+    tests/main.cpp
+)
+
+target_link_libraries(logger_tests
+    PRIVATE
+        logger
+)
+
+enable_testing()
+
+add_test(
+    NAME logger_tests
+    COMMAND logger_tests
+)
